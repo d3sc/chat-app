@@ -23,6 +23,17 @@
   font-family: "Poppins";
 }
 
+@include mobile() {
+  .formWrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+}
+
 @include mobile {
   .chat {
     &.close {
@@ -289,40 +300,40 @@
         }
       }
 
-      .chats {
-        overflow: scroll;
-        .userChat {
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          color: white;
-          cursor: pointer;
+      .userChat {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        cursor: pointer;
 
-          transition: all 0.2s ease;
+        transition: all 0.2s ease;
 
-          &:hover {
-            background-color: #2f2d52;
+        &:hover {
+          background-color: #2f2d52;
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .userChatInfo {
+          span {
+            font-weight: 500;
           }
 
-          img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-
-          .userChatInfo {
-            span {
-              font-weight: 500;
-            }
-
-            p {
-              font-size: 14px;
-              color: lightgray;
-            }
+          p {
+            font-size: 14px;
+            color: lightgray;
           }
         }
+      }
+      .chats {
+        overflow: scroll;
       }
     }
     .chat {
