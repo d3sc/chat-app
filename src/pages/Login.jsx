@@ -17,7 +17,7 @@ export default function Login() {
       if (!email || !password) throw "The field must be filled!";
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
-      console.log(err.message);
+      alert(err);
       setErr(true);
     }
   };

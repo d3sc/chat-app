@@ -18,6 +18,7 @@ export default function Input() {
   const chatId = data.chatId;
   const handleSend = async (e) => {
     e.preventDefault();
+
     if (img) {
       const storageRef = ref(storage, uuid());
 
@@ -35,6 +36,7 @@ export default function Input() {
         });
       });
     } else {
+      if (text.length == 0) return alert("teks tidak bisa kosong");
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),

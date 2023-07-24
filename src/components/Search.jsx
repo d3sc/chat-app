@@ -23,7 +23,8 @@ export default function Search() {
   };
 
   const handleKey = (e) => {
-    e.code === "Enter" && handleSearch();
+    e.preventDefault();
+    handleSearch();
   };
 
   const handleSelect = async () => {
@@ -56,7 +57,7 @@ export default function Search() {
         });
       }
     } catch (err) {
-      console.log(err);
+      alert(err);
       setErr(true);
     }
 
@@ -66,7 +67,9 @@ export default function Search() {
   return (
     <div className="search">
       <div className="searchForm">
-        <input type="text" placeholder="Find a user" onKeyDown={handleKey} onChange={(e) => setUsername(e.target.value)} value={username} />
+        <form onSubmit={handleKey}>
+          <input type="text" placeholder="Find a user" onChange={(e) => setUsername(e.target.value)} value={username} />
+        </form>
       </div>
       {err && <span>User not found!</span>}
       {/* <span>user</span> */}

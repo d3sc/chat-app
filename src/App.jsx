@@ -4,8 +4,6 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext.jsx";
-import Sidebar from "./components/Sidebar";
-import Chat from "./components/Chat";
 
 function App() {
   const user = useContext(AuthContext);
@@ -29,8 +27,6 @@ function App() {
             }></Route>
           <Route path="login" element={user ? <Navigate to={"/"} /> : <Login />}></Route>
           <Route path="register" element={<Register />}></Route>
-          {/* <Route path="/sidebar" element={<Sidebar mobile={true} />}></Route>
-          <Route path="/chats" element={<Chat mobile={true} />}></Route> */}
         </Route>
       </Routes>
     </Router>

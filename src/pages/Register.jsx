@@ -50,7 +50,7 @@ export default function Register() {
 
             navigate("/");
           } catch (err) {
-            console.log(err);
+            alert(err);
             setErr(true);
           }
         });
