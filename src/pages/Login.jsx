@@ -36,6 +36,13 @@ export default function Login() {
         <p>
           You don't have an account? <Link to={"/register"}>Register</Link>
         </p>
+        <div className="mobile-info">
+          <span>jika anda memenukan bug / kesalahan, tolong hubungi admin</span>
+          <br />
+          <span>
+            dengan cara ketik <b>admin</b>, pada Find a user
+          </span>
+        </div>
       </div>
     </div>
   );
