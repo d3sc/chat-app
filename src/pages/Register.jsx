@@ -3,7 +3,7 @@ import Add from "../img/addAvatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -20,6 +20,13 @@ export default function Register() {
 
     try {
       if (!displayName || !email || !password || !file) throw "the field must be filled!";
+      const querySnapshot = await getDocs(collection(db, "users"));
+      querySnapshot.forEach((doc) => {
+        // console.log(doc.id, " => ", doc.data().displayName);
+        if (displayName == doc.data().displayName) throw "nama telah digunakan";
+        if (email == doc.data().email) throw "email telah digunakan";
+      });
+
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
       const date = new Date().getTime();
@@ -49,6 +56,7 @@ export default function Register() {
         });
       });
     } catch (err) {
+      alert(err);
       setErr(true);
     }
   };
