@@ -220,16 +220,11 @@
     }
 
     .sidebar {
+      overflow: scroll;
       flex: 1;
       position: relative;
 
       background-color: #3e3c61;
-
-      // @include mobile() {
-      //   flex: 0;
-      //   width: 0px;
-      //   // display: none;
-      // }
 
       .navbar {
         display: flex;
@@ -288,7 +283,6 @@
         }
       }
       .search {
-        // border-bottom: 1 solid gray;
         border-bottom: 1px solid #717095;
 
         .searchForm {
@@ -345,9 +339,6 @@
             color: lightgray;
           }
         }
-      }
-      .chats {
-        overflow: scroll;
       }
     }
     .chat {
